@@ -1,0 +1,168 @@
+Development Prompt: "SoundWeave" - A Collaborative Online Radio & Creator E-Commerce Platform
+Project Name: SoundWeave
+Core Concept: A fully-featured web application that merges a live online radio station with a dynamic e-commerce and collaboration platform. It empowers independent artists and creators to build digital shops, sell products, and collaborate directly with their audience through co-funding, profit-sharing, and ownership models.
+
+1. Technical Stack & Foundation
+Frontend: HTML5, CSS3 (using a modern framework like Tailwind CSS or a pre-built UI library for speed), Vanilla JavaScript (with potential for a framework like React/Vue.js for complex components, but specified as JS).
+
+Backend: Node.js with Express.js or Python with Django (for robust user management and database interactions).
+
+Database: PostgreSQL or MongoDB for storing user data, product info, orders, messages, and project details.
+
+Media Streaming: A dedicated streaming server (e.g., Icecast, SHOUTcast) or a cloud service (e.g., AWS Media Services, Airtime Pro) integrated via HTML5 Audio API/Howler.js for the radio player.
+
+Real-time Communication: Socket.IO for live chat, direct messaging, and group rooms.
+
+Payments & Escrow:
+
+Fiat Payments: Integrate Stripe or PayPal for standard product purchases, subscriptions, and ticket sales.
+
+Crypto/Escrow for Investments: Integrate a Web3 library (e.g., Web3.js or Ethers.js) to connect to a blockchain like Ethereum or Polygon. Smart contracts will be deployed to handle the escrow and distribution of funds for collaboration projects.
+
+File Storage: AWS S3 or Google Cloud Storage for music files, profile pictures, and other digital assets.
+
+2. Core Pages & Features (UI/UX & Functionality)
+The design must be modern, clean, and intuitive, with a focus on audio and media presentation.
+
+Header & Footer
+Header: Fixed navigation bar with the Logo, and the following tabs: Home | Latest Music | Artists | Collab | Marketplace | Live & Blog. Also include: Search Bar, User Profile Icon (dropdown for Profile, Messages, Cart, Logout), and a prominent "Play/Pause" button for the radio.
+
+Footer: Organized links to: About Us, Contact, FAQ, Verification Process, How It Works, Terms & Conditions, Privacy Policy, and social media icons.
+
+Page-Specific Requirements
+1. Home Page / Radio Page
+Hero Section: A large, visually appealing media player with play/pause, volume, and "Now Playing" information (artist, track). It should be "sticky" or always accessible.
+
+Live Radio Stream: The primary audio stream sourced from the streaming server.
+
+Content Sections:
+
+Featured Independent Artist: A spotlight on a selected artist with their picture, bio, and a link to their profile.
+
+Latest Tracks: A scrollable grid of the most recently uploaded songs.
+
+Top 20 Chart: A ranked list of the most popular tracks on the platform (based on plays/purchases).
+
+Platform News & Updates: A blog-style feed for official announcements.
+
+2. Latest Music Tab
+A comprehensive, filterable music library.
+
+Filters: Genre, Mood, BPM, Release Date, Artist.
+
+Layout: Grid or list view of tracks with: Album Art, Song Title, Artist Name, Play Button (preview), Duration, and "Add to Cart" / "Price" button.
+
+Clicking a song opens a detailed modal or page with more info and purchase/investment options.
+
+3. Artist/Musician Tab
+A directory of all verified artists on the platform.
+
+Layout: Card-based grid showing artist avatar, name, and primary genre.
+
+Search & Filter: Search by name, filter by genre, and a "Verified" badge for authenticated profiles.
+
+4. Collab Tab
+Project Listings: Artists can post projects seeking funding. Each project card displays:
+
+Project Title & Artist
+
+Funding Goal & Current Amount Raised (progress bar)
+
+Description of the project (e.g., "New Album," "Music Video").
+
+Investment Tiers: e.g., "R100 - Digital Copy + Thank you," "R500 - Royalty Share (0.5%)," "R5000 - Co-ownership of Master (5%)."
+
+Investment Process: Users click "Invest," select a tier, and are guided to a secure checkout powered by the Escrow System.
+
+Smart Contract Integration: Upon successful payment (crypto/fiat converted), a smart contract is generated or updated, locking the funds and defining the terms (royalty percentage, ownership stake) for the investor.
+
+5. Marketplace/Store
+Categories: Digital Music (MP3/FLAC), Physical Merch (Vinyl, CDs, T-shirts), and access to purchase tickets for Live Shows.
+
+Product Pages: High-quality images, descriptions, prices, and an "Add to Cart" button.
+
+Shopping Cart: A slide-out or dedicated page cart system. Users can review items, quantities, and proceed to a secure checkout.
+
+6. Live Shows and Events/Blog
+Live Shows Section: An integrated video streaming player (e.g., via YouTube Live or Twitch) for scheduled live performances. List of upcoming and past events.
+
+Blog Section: A content management system for artists and platform admins to post articles, behind-the-scenes content, and news.
+
+7. Communication System
+Platform Messaging: A central messaging hub (like Discord/Slack) built with Socket.IO.
+
+Group Chat Rooms: Themed rooms (e.g., "Hip-Hop Lovers," "Producer's Corner").
+
+Direct Messaging (DM): User-to-User, User-to-Artist, Artist-to-Artist.
+
+Notifications: Real-time alerts for new messages, project updates, and purchases.
+
+3. User & Backend Systems
+User Accounts & Profiles
+Two-Tier Registration:
+
+Listener/Regular User: Can browse, listen, purchase, and invest in projects.
+
+Creator/Artist: Must undergo a Verification Process (upload ID, confirm ownership of music) to sell products and post Collab projects.
+
+Profile Page: All users can customize their profile with a username, bio, profile picture, and header image. Artist profiles prominently display their products, music, and active Collab projects.
+
+Subscription Model
+"Access Pass" Subscription: To unlock full platform features (especially selling and creating Collab projects), users must purchase a monthly subscription.
+
+Regular User: Purchase 6 different songs from 6 different creators (R9.99 per song = ~R59.94 total).
+
+Music Creator/Collaborator: Purchase 12 different songs from 12 different creators (R9.99 per song = ~R119.88 total).
+
+Logic: The system tracks song purchases. Once the monthly quota (6 or 12) is met, the user's account is flagged as "subscribed" for that month. This model supports the artist community directly.
+
+Escrow & Smart Contract System for Collab Tab
+Investment Flow:
+
+User invests in a project.
+
+Funds (in crypto or fiat) are locked in a smart contract escrow.
+
+The project has a funding deadline and goal.
+
+If Goal Met: Upon project completion (e.g., album release), the smart contract automatically releases the funds to the artist. The contract is immutable and defines future royalty payments, which are automatically distributed to investors' wallets based on the agreed-upon percentages whenever revenue is recorded.
+
+If Goal Not Met: Funds are automatically returned to the investors after the deadline passes.
+
+Backend: A database table to map user wallets/accounts to their smart contract addresses and ownership stakes.
+
+4. Database Schema (Key Tables)
+Users: user_id, email, username, password_hash, role, profile_pic_url, is_verified, subscription_status, ...
+
+Products: product_id, artist_id, title, description, price, type (digital/physical), file_url, ...
+
+Orders: order_id, user_id, total_amount, status, created_at
+
+Order_Items: order_item_id, order_id, product_id, quantity
+
+Collab_Projects: project_id, artist_id, title, description, funding_goal, current_fund, deadline, smart_contract_address
+
+Investments: investment_id, project_id, user_id, amount, tier, ownership_stake
+
+Messages: message_id, sender_id, receiver_id (or room_id), content, timestamp
+
+Tracks (for Radio/Library): track_id, artist_id, title, file_url, genre, duration, play_count
+
+Summary of Deliverables
+A fully functional web application with:
+
+A modern, responsive UI across all pages.
+
+A live, streaming radio player on the homepage.
+
+A functional user system with profiles and a two-tier verification/subscription model.
+
+A complete e-commerce marketplace with a shopping cart and checkout.
+
+A collaborative funding ("Collab") section with an integrated escrow system.
+
+A real-time messaging and communication hub.
+
+A secure backend database storing all user, product, and transaction data.
+
+Integration of both traditional payment gateways and blockchain-based smart contracts for investments.

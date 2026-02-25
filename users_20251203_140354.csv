@@ -1,0 +1,6 @@
+id,openId,name,email,loginMethod,role,createdAt,updatedAt,lastSignedIn,userType,profilePicUrl,headerImageUrl,bio,isVerified,subscriptionStatus,subscriptionExpiresAt
+1,RccAKFcXM6eP6KjbLnwBqE,jabulani mlaudzi,jabulanimlaudzi@gmail.com,google,admin,2025-11-15 11:15:24,2025-12-03 14:02:57,2025-12-03 14:02:57,listener,,,,0,inactive,
+1560002,admin-finance-001,Finance Manager,finance@soundweave.com,admin,admin,2025-12-01 06:06:52,2025-12-01 06:06:52,2025-12-01 06:06:52,listener,,,,0,inactive,
+1560003,admin-verification-001,Verification Officer,verification@soundweave.com,admin,admin,2025-12-01 06:06:52,2025-12-01 06:06:52,2025-12-01 06:06:52,listener,,,,0,inactive,
+1560004,admin-content-001,Content Moderator,content@soundweave.com,admin,admin,2025-12-01 06:06:52,2025-12-01 06:06:52,2025-12-01 06:06:52,listener,,,,0,inactive,
+1560005,admin-support-001,Support Manager,support@soundweave.com,admin,admin,2025-12-01 06:06:52,2025-12-01 06:06:52,2025-12-01 06:06:52,listener,,,,0,inactive,
